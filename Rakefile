@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'rake/testtask'
 require 'rubygems'
 require 'rake'
 require 'haml'
@@ -20,3 +21,8 @@ task :clean do
    `rm -rf *.html`
 end
 
+task :test do 
+	Rake::TestTask.new do |t|
+	   t.test_files = FileList['test/jenkins_sample_test.rb']
+	end
+end
